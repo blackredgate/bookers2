@@ -1,2 +1,56 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row my-4">
+    <div class="col-md-3">
+      <!-- ユーザーの詳細 -->
+      <h3>User info</h3>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <div class="row border-top border-bottom">
+        <div class="col-md-6">
+          <p class="font-weight-bold">name</p>
+        </div>
+        <div class="col-md-6">
+          <p class="font-weight-bold text-center"><%= @user.name %></p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <p class="font-weight-bold">introduction</p>
+        </div>
+        <div class="col-md-6">
+          <p class="font-weight-bold text-center"><%= @user.introduction %></p>
+        </div>
+      </div>
+      
+      <div>
+        <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' do %>
+        <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </div>
+      
+      <!-- 新規投稿フォーム -->
+      <div class="row my-3">
+        <h3>New book</h3>
+        <%= form_with model: @book do |f| %>
+          <div>
+            <p>Title</p>
+            <%= f.text_field :title %>
+          </div>
+          <div>
+            <p>Opinion</p>
+            <%= f.text_area :body %>
+          </div>
+        	<div>
+        	  <%= f.submit 'Create Book', class:'btn btn-sm btn-success' %>
+        	</div>
+        <% end %>
+      </div>
+      
+    </div>
+    
+    <!-- ユーザーの投稿一覧 -->
+    <div class="col-md-9">
+      
+    </div>
+  </div>
+</div>
