@@ -1,2 +1,30 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="container">
+  <div class="row my-4">
+<%= render 'users/user_info', user: @user %>
+  
+<!-- ユーザーの投稿一覧 -->
+    <div class="col-md-7">
+      <h3>Books</h3>
+      <div class="row border-top border-bottom">
+        <div class="col-md-4"></div>
+        <div class="col-md-3">
+          <p class="font-weight-bold">Title</p>
+        </div>
+        <div class="col-md-5">
+          <p class="font-weight-bold">Opinion</p>
+        </div>
+      </div>
+        
+      <% @books.each do |book| %>
+        <div class="row border-top">
+          <%= link_to book_path(book.id) do %>
+            <%= image_tag book.get_image %>
+          <% end %>
+          <div class="col-md-4"><%= image_tag book.user.get_profile_image(100,100) %></div>
+          <div class="col-md-3"><%= book.title %></div>
+          <div class="col-md-5"><%= book.body %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
