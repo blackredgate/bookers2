@@ -1,13 +1,13 @@
     <div class="col-md-3">
       <!-- ユーザーの詳細 -->
       <h3>User info</h3>
-      <%= image_tag @user.get_profile_image(100,100) %>
+      <%= image_tag user.get_profile_image(100,100) %>
       <div class="row border-top border-bottom">
         <div class="col-md-6">
           <p class="font-weight-bold">name</p>
         </div>
         <div class="col-md-6">
-          <p class="font-weight-bold text-center"><%= @user.name %></p>
+          <p class="font-weight-bold text-center"><%= user.name %></p>
         </div>
       </div>
       
@@ -16,13 +16,13 @@
           <p class="font-weight-bold">introduction</p>
         </div>
         <div class="col-md-6">
-          <p class="font-weight-bold text-center"><%= @user.introduction %></p>
+          <p class="font-weight-bold text-center"><%= user.introduction %></p>
         </div>
       </div>
       
       
       <div>
-        <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block' do %>
+        <%= link_to edit_user_path(current_user), class: 'btn btn-outline-secondary btn-block' do %>
         <i class="fa-solid fa-user-gear"></i>
         <% end %>
       </div>
@@ -33,12 +33,12 @@
         <h3>New book</h3>
         <%= form_with model: @book, url: '/books' do |f| %>
           <div>
-            <p>Title</p>
-            <%= f.text_field :title %>
+            <label>Title</label>
+            <div><%= f.text_field :title %></div>
           </div>
           <div>
-            <p>Opinion</p>
-            <%= f.text_area :body %>
+            <label>Opinion</label>
+            <div><%= f.text_area :body %></div>
           </div>
         	<div>
         	  <%= f.submit 'Create Book', class:'btn btn-sm btn-success' %>
