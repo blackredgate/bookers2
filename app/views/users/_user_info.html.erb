@@ -2,24 +2,19 @@
       <!-- ユーザーの詳細 -->
       <h3>User info</h3>
       <%= image_tag user.get_profile_image(100,100) %>
-      <div class="row border-top border-bottom">
-        <div class="col-md-6">
-          <p class="font-weight-bold">name</p>
-        </div>
-        <div class="col-md-6">
-          <p class="font-weight-bold text-center"><%= user.name %></p>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <p class="font-weight-bold">introduction</p>
-        </div>
-        <div class="col-md-6">
-          <p class="font-weight-bold text-center"><%= user.introduction %></p>
-        </div>
-      </div>
-      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th><%= user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= user.introduction %></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
       
       <div>
         <%= link_to edit_user_path(current_user), class: 'btn btn-outline-secondary btn-block' do %>

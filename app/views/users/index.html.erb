@@ -5,21 +5,24 @@
         <!-- ユーザーの投稿一覧 -->
     <div class="col-md-7">
       <h3>Users</h3>
-      <div class="row border-top border-bottom">
-        <div class="col-md-4">image</div>
-        <div class="col-md-5">
-          <p class="font-weight-bold">name</p>
-        </div>
-        <div class="col-md-3"></div>
-      </div>
-
-      <% @users.each do |user| %>
-        <div class="row border-top">
-            <div class="col-md-4"><%= image_tag user.get_profile_image(100,100) %></div>
-            <div class="col-md-5"><%= user.name %></div>
-            <div class="col-md-3"><%= link_to 'show', user_path(user.id) %></div>
-        </div>
-      <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>image</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @users.each do |user| %>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to 'show', user_path(user.id) %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
