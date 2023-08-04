@@ -8,7 +8,7 @@
           <% end %>
         </ul>
       <% end %>
-      
+
       <!-- ユーザーの詳細 -->
       <h3>User info</h3>
       <%= image_tag user.get_profile_image(100,100) %>
@@ -25,14 +25,14 @@
         </thead>
         <tbody></tbody>
       </table>
-      
+
       <div>
-        <%= link_to edit_user_path(current_user), class: 'btn btn-outline-secondary btn-block' do %>
-        <i class="fa-solid fa-user-gear"></i>
+        <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
+          <i class="fas fa-user-cog"></i>
         <% end %>
       </div>
-     
-      
+
+
       <!-- 新規投稿フォーム -->
       <div class="row my-3">
         <h3>New book</h3>
@@ -50,7 +50,6 @@
         	</div>
         <% end %>
       </div>
-      
+
     </div>
     
-    <div class="col-md-1"></div>
